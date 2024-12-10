@@ -1,5 +1,10 @@
 package com.hemebiotech.analytics;
 
+import com.hemebiotech.analytics.dao.FileDataBaseManager;
+import com.hemebiotech.analytics.dao.FileDataImplement;
+import com.hemebiotech.analytics.dao.IData;
+import com.hemebiotech.analytics.service.DataService;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -10,6 +15,15 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;		// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
+		IData fileData = new FileDataImplement(getFileDataInstance());
+
+		DataService dataService = new DataService();
+
+		dataService.setIdata(fileData);
+		System.out.println("###################################################");
+		System.out.println("Données depuis la method : "+ dataService.countOccurrences(dataService.getData()));
+		System.out.println("###################################################");
+
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
@@ -39,5 +53,10 @@ public class AnalyticsCounter {
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
+	}
+
+	public static FileDataBaseManager getFileDataInstance(){
+		FileDataBaseManager fileDataBaseManager = FileDataBaseManager.getInstance();
+		return fileDataBaseManager;
 	}
 }
