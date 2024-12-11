@@ -2,7 +2,9 @@ package com.hemebiotech.analytics;
 
 import com.hemebiotech.analytics.dao.FileDataBaseManager;
 import com.hemebiotech.analytics.service.FileImplement;
-import com.hemebiotech.analytics.service.implement.IFile;
+import com.hemebiotech.analytics.service.FileOutputService;
+import com.hemebiotech.analytics.service.interfaces.IFile;
+import com.hemebiotech.analytics.service.interfaces.IFileOutput;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,9 +14,12 @@ public class AnalyticsCounter {
 	private static int headacheCount = 0;	// initialize to 0
 	private static int rashCount = 0;		// initialize to 0
 	private static int pupilCount = 0;		// initialize to 0
+	private static String fileName = "result.out";
 	
 	public static void main(String args[]) throws Exception {
 		IFile fileData = new FileImplement(getFileDataInstance());
+		IFileOutput fileOutput = new FileOutputService();
+		fileOutput.writeToFile(fileName, fileData.sortAlphabet());
 		
 		System.out.println("###################################################");
 		System.out.println("Données depuis la method : "+ fileData.countOccurrences());

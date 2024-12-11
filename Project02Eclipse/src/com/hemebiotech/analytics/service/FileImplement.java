@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics.service;
 
 import com.hemebiotech.analytics.dao.FileDataBaseManager;
-import com.hemebiotech.analytics.service.implement.IFile;
+import com.hemebiotech.analytics.service.interfaces.IFile;
 
 import java.util.HashMap;
 import java.util.List;
