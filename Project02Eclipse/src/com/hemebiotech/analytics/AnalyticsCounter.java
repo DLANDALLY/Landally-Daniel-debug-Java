@@ -1,9 +1,8 @@
 package com.hemebiotech.analytics;
 
 import com.hemebiotech.analytics.dao.FileDataBaseManager;
-import com.hemebiotech.analytics.dao.FileDataImplement;
-import com.hemebiotech.analytics.dao.IData;
-import com.hemebiotech.analytics.service.DataService;
+import com.hemebiotech.analytics.service.FileImplement;
+import com.hemebiotech.analytics.service.implement.IFile;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,13 +14,11 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;		// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
-		IData fileData = new FileDataImplement(getFileDataInstance());
-
-		DataService dataService = new DataService();
-
-		dataService.setIdata(fileData);
+		IFile fileData = new FileImplement(getFileDataInstance());
+		
 		System.out.println("###################################################");
-		System.out.println("Données depuis la method : "+ dataService.countOccurrences(dataService.getData()));
+		System.out.println("Données depuis la method : "+ fileData.countOccurrences());
+		System.out.println("Données depuis la method : "+ fileData.sortAlphabet());
 		System.out.println("###################################################");
 
 		// first get input

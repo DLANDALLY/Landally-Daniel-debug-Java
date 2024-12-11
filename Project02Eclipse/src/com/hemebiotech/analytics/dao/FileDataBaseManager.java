@@ -17,21 +17,6 @@ public class FileDataBaseManager {
     }
 
 
-//    public String readData() {
-//        StringBuilder data = new StringBuilder();
-//
-//        try (BufferedReader reader = new BufferedReader(new FileReader(DATABASE_FILE))) {
-//            String line;
-//            while ((line = reader.readLine())!= null) {
-//                data.append(line).append("\n");
-//            }
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return data.toString();
-//    }
-
     public List<String> readData() {
         List<String> data = new ArrayList<>();
 
