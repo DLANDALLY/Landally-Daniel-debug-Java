@@ -16,7 +16,10 @@ public class FileDataBaseManager {
         return (instance == null) ? instance = new FileDataBaseManager(): instance;
     }
 
-
+    /**
+     * Read the contents of the file
+     * @return list of contents
+     */
     public List<String> readData() {
         List<String> data = new ArrayList<>();
 

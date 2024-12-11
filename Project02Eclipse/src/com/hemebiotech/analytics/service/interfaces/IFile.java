@@ -7,8 +7,6 @@ import java.util.Map;
 public interface IFile {
     List<String> findAll();
 
-    Map<String, Integer>countOccurrences();
-
-    Map<String, Integer>sortAlphabet();
+    Map<String, Integer>countOccurrences(List<String> data);
 
 }
