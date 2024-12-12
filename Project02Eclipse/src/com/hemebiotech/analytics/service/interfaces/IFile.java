@@ -8,5 +8,7 @@ public interface IFile {
     List<String> findAll();
 
     Map<String, Integer>countOccurrences(List<String> data);
+    Map<String, Integer>formatData();
+
 
 }

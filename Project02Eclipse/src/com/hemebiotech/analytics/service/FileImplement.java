@@ -3,7 +3,6 @@ package com.hemebiotech.analytics.service;
 import com.hemebiotech.analytics.dao.FileDataBaseManager;
 import com.hemebiotech.analytics.service.interfaces.IFile;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -35,6 +34,14 @@ public class FileImplement implements IFile {
         data.forEach(item -> countMap.merge(item, 1, Integer::sum));
         //data.forEach(item -> countMap.put(item, countMap.getOrDefault(item, 0) + 1));
 
+        return countMap;
+    }
+
+    public Map<String, Integer> formatData(){
+        List<String> data = findAll();
+        Map<String, Integer> countMap = countOccurrences(data);
+
+        countMap.forEach((k, v) -> System.out.println(k + " -> " + v));
         return countMap;
     }
 
