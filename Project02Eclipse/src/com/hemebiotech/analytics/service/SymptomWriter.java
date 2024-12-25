@@ -1,25 +1,29 @@
 package com.hemebiotech.analytics.service;
 
-import com.hemebiotech.analytics.service.interfaces.IFile;
-import com.hemebiotech.analytics.service.interfaces.IFileOutput;
+import com.hemebiotech.analytics.service.interfaces.ISymptomWriter;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-public class FileOutputService implements IFileOutput {
+public class SymptomWriter implements ISymptomWriter {
     private final String fileName = "result.out";
+    @Override
+    public void writeToFile(Map<String, Integer> map) throws IOException {
+
+    }
+
 
     /**
      * Write the symptom occurrences to a file
-     * @param data symptom occurrences
+     * @param symptoms symptom occurrences
      * @throws IOException if error occurs during file writing
      */
     @Override
-    public void writeToFile(Map<String, Integer> data) throws IOException {
+    public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
         FileWriter writer = new FileWriter (fileName);
 
-        data.forEach(
+        symptoms.forEach(
                 (key, value) -> {
                     try {
                         writer.write(key +": "+ value + "\n");

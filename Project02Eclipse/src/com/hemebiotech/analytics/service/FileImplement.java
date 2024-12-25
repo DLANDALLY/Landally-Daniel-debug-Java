@@ -32,7 +32,6 @@ public class FileImplement implements IFile {
         Map<String, Integer> countMap = new TreeMap<>(); //Sorted in their natural order
 
         data.forEach(item -> countMap.merge(item, 1, Integer::sum));
-        //data.forEach(item -> countMap.put(item, countMap.getOrDefault(item, 0) + 1));
 
         return countMap;
     }
