@@ -9,16 +9,11 @@ import java.util.Map;
 public class WriteSymptomDataToFile implements ISymptomWriter {
     private final String fileName = "result.out";
 
-    /**
-     * Write the symptom occurrences to a file
-     * @param data symptom occurrences
-     * @throws IOException if error occurs during file writing
-     */
     @Override
-    public void writeToFile(Map<String, Integer> data) throws IOException {
+    public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
         FileWriter writer = new FileWriter (fileName);
 
-        data.forEach(
+        symptoms.forEach(
                 (key, value) -> {
                     try {
                         writer.write(key +": "+ value + "\n");
@@ -27,10 +22,5 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                     }
                 });
         writer.close();
-    }
-
-    @Override
-    public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
-
     }
 }
