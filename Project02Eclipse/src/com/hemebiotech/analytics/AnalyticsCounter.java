@@ -14,9 +14,7 @@ public class AnalyticsCounter {
 		IFileOutput fileOutput = new FileOutputService();
 
 		fileOutput.writeToFile(fileData.countOccurrences(fileData.findAll()));
-
 		System.out.println("symptom from file: "+ fileData.countOccurrences(fileData.findAll()));
-
 		fileData.formatData();
 	}
 
